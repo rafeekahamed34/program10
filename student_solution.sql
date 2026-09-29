@@ -1,12 +1,13 @@
-CREATE CollegeDB;
+CREATE DATABASE IF NOT EXISTS CollegeDB;
 USE CollegeDB;
+
 CREATE TABLE Course (
     CourseID INT,
     CourseName VARCHAR(100),
     Credits INT
 );
 
-INSERT INTO Course (CourseID, CourseName, Credits) VALUES
+INSERT INTO Course VALUES
 (201, 'Database Systems', 4),
 (202, 'Data Structures', 3),
 (203, 'Mathematics', 4);
@@ -17,7 +18,7 @@ CREATE TABLE Enrollment (
     CourseID INT
 );
 
-INSERT INTO Enrollment (EnrollmentID, StudentID, CourseID) VALUES
+INSERT INTO Enrollment VALUES
 (1, 1001, 201),
 (2, 1001, 202),
 (3, 1002, 203),
@@ -26,3 +27,16 @@ INSERT INTO Enrollment (EnrollmentID, StudentID, CourseID) VALUES
 SELECT Course.CourseID,
        Course.CourseName,
        Enrollment.EnrollmentID,
+       Enrollment.StudentID
+FROM Course
+LEFT JOIN Enrollment
+ON Course.CourseID = Enrollment.CourseID;
+
+SELECT Course.CourseID,
+       Course.CourseName,
+       Enrollment.EnrollmentID,
+       Enrollment.StudentID
+FROM Course
+RIGHT JOIN Enrollment
+ON Course.CourseID = Enrollment.CourseID;
+
