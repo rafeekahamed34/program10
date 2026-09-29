@@ -1,3 +1,5 @@
+CREATE CollegeDB;
+USE CollegeDB;
 CREATE TABLE Course (
     CourseID INT,
     CourseName VARCHAR(100),
