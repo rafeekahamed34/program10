@@ -1,4 +1,3 @@
-CREATE DATABASE CollegeDB;
 USE CollegeDB;
 
 CREATE TABLE Course (
@@ -27,15 +26,3 @@ INSERT INTO Enrollment (EnrollmentID, StudentID, CourseID) VALUES
 SELECT Course.CourseID,
        Course.CourseName,
        Enrollment.EnrollmentID,
-       Enrollment.StudentID
-FROM Course
-LEFT JOIN Enrollment
-ON Course.CourseID = Enrollment.CourseID;
-
-SELECT Course.CourseID,
-       Course.CourseName,
-       Enrollment.EnrollmentID,
-       Enrollment.StudentID
-FROM Course
-RIGHT JOIN Enrollment
-ON Course.CourseID = Enrollment.CourseID;
